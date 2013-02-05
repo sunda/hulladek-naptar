@@ -1,0 +1,10 @@
+*{margin:0;padding:0;}
+
+section aside p{
+/*tmp*/
+display:block;
+width:320px;
+height:50px;
+background:#D4AA10;
+/*/tmp*/
+}
