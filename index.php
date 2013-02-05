@@ -1,30 +1,31 @@
 <html>
-<meta charset="UTF-8">
-
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
 <body>
-<div style="text-align: center">>>>>>>[Moduls/Main_meta.html]<<<<<</div>
 
-<div style="text-align: center"><h1>Hulladékszállítási naptárak</h1></div>
+<header>
+	<h1>Hulladékszállítási naptárak</h1>
+	<h2>Magyarországi hulladékszállítási naptárak. Nézd meg tőletek mikor viszik el a szemetet!</h2>
+</header>
 
-<h3><div style="text-align: center">Magyarországi hulladékszállítási naptárak. Nézd meg tőletek mikor viszik el a szemetet!</div></h3>
+<section>
+	<form method="get" target="_top">
+		<label for="postal"> Irányítószám:</label>
+		<input type="text" id="postal" value="" name="Irányítószám" placeholder="pl.:6077" />
+		<input type="submit" value="Keresés" />
+	</form>
 
- 
-<div style="text-align: center"><form method="get" target="_top">
-Keresés irányítószám alapján:
-<input type="text" value="" name="Irányítószám" /><input type="submit" />
-</form>
+	<aside>
+		<p>[Moduls/Adsense.html]</p>
+	</aside>
+</section>
 
-
-<form method="get" target="_top">
-Keresés településnév alapján:
-<input type="text" value="" name="Település" /><input type="submit" />
-</form></div>
-<div style="text-align: center">
->>>>>>[Moduls/Adsense.html]<<<<<<</div>
-
-<div style="text-align: center">(Az s_WasteType tábla összes sora, a következő formában)<br>
-[s_WasteType/Name]:<br>
-[s_WasteType/Description]<br></div>
+<footer>
+	[s_WasteType/Name]:<br>
+	[s_WasteType/Description]<br>
+</footer>
 
 </body>
 </html>
