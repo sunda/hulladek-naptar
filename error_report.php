@@ -14,10 +14,11 @@ function makeinput($type, $name)//form maker function
 			 $value= $value.'/>';
 				echo $value;
 				}
+				
 
 if (isset($_POST['name'])){ 
-										if (($_POST['name']='') or ($_POST['email']=='') or ($_POST['message']=='')){
-																																	echo "A kövekező mezők kitöltése kötelező:
+										if (($_POST['name']=='') || ($_POST['email']=='') || ($_POST['message']=='')){
+																																	echo "A következő mezők kitöltése kötelező:
 																																						<ul>
 																																						<li>Név</li>
 																																						<li>e-mail</li>
@@ -25,7 +26,19 @@ if (isset($_POST['name'])){
 																																						</ul>";
 																																	}else
 																																	{
-																																		send_mail();																																		
+																																		
+																																		$to      = 'sunda@ewaste.hu';
+																																		$subject = 'the subject';
+																																		$message = $_POST['message'];
+																																		$headers = 'From:'.$_POST['email']. "\r\n";
+
+																																		$success=mail($to, $subject, $message, $headers);
+																																		if ($success) {
+																																			echo "OK";
+																																			} else {
+																																			echo "NO";
+																																			};								
+																																												
 																																		}
 																								}
 
@@ -45,7 +58,7 @@ Weboldalad: <?php makeinput('text','url')?><br>
 
 <br>
 <button type="submit">Hiba jelentése</button><br>
-A *-gal jelölt mezők kitökltése kötelező.
+A *-gal jelölt mezők kitöltése kötelező.
 </form>
 
 <p>
