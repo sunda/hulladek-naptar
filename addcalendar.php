@@ -15,7 +15,7 @@ Köszönjük hogy segítesz a naptár bővítésében. A következő fog törté
  
 
 
-<font size="4" color="#FF0000">Ha hibát akarsz bejelenteni, <a href="hiba.html">ide kattintva tedd meg.</a></font>
+<font size="4" color="#FF0000">Ha hibát akarsz bejelenteni, <a href="error_report.php">ide kattintva tedd meg.</a></font>
 </p><br>
 <form method="post">
 *Helység(Név vagy irányítószám) <input type="text" name="Name" /><br>

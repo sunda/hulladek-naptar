@@ -47,8 +47,8 @@
 </p>
 <p align="center">
 Segíts nekünk:<br>
-<a href="#">Hibát találtam a naptárban</a><br>
-<a href="#">Naptár hozzáadása</a>
+<a href="error_report.php">Hibát találtam a naptárban</a><br>
+<a href="addcalendar.php">Naptár hozzáadása</a>
 </p>
 <form>
 Hozzászólások a naptárhoz(később)

@@ -50,7 +50,7 @@ if (isset($_POST['name'])){
 ?>
 <p><h1>Hiba bejelentése</h1>
 
-<font size="4" color="#FF0000">Figyelem! Itt csak a hibákat jelentsd. Ha naptárat akarsz beküldeni, azt <a href="Naptarbekuldes.html">ide kattintva tedd meg.</a></font>
+<font size="4" color="#FF0000">Figyelem! Itt csak a hibákat jelentsd. Ha naptárat akarsz beküldeni, azt <a href="addcalendar.php">ide kattintva tedd meg.</a></font>
 </p><br>
 <form method="post" action="error_report.php">
 *Neved: <?php makeinput('text','name')?><br>
