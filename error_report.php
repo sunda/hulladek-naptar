@@ -27,16 +27,18 @@ if (isset($_POST['name'])){
 																																	}else
 																																	{
 																																		
-																																		$to      = 'sunda@ewaste.hu';
-																																		$subject = 'the subject';
-																																		$message = $_POST['message'];
+																																		$to      = 'exam@exam.hu';
+																																		$subject = 'Error report from calendar';
+																																		$message = 'Reporter website: '.$_POST['url']."\r\n\r\n".'Error report:'. $_POST['message'];
+																																																																													
+																																		
 																																		$headers = 'From:'.$_POST['email']. "\r\n";
 
 																																		$success=mail($to, $subject, $message, $headers);
 																																		if ($success) {
-																																			echo "OK";
+																																			echo "<p>A hibajelentést sikeresen elküldted</p>";
 																																			} else {
-																																			echo "NO";
+																																			echo "<p>A hibajelentést valamilyen technikai probléma miatt nem sikerült kézbesíteni. Kérlek írj egy levelet a exam[at]exam[dot]hu címre.<br> Köszönjük a segítséged!</p>";
 																																			};								
 																																												
 																																		}
