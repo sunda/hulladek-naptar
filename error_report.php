@@ -14,7 +14,7 @@ function makeinput($type, $name)//form maker function
 			 $value= $value.'/>';
 				echo $value;
 				}
-				
+								
 
 if (isset($_POST['name'])){ 
 										if (($_POST['name']=='') || ($_POST['email']=='') || ($_POST['message']=='')){
@@ -56,7 +56,13 @@ if (isset($_POST['name'])){
 *Neved: <?php makeinput('text','name')?><br>
 *e-mail: <?php makeinput('email','email')?><br>
 Weboldalad: <?php makeinput('text','url')?><br>
-*Hiba leírás <?php makeinput('text','message')?><br>
+*Hiba leírása:<br> <textarea name='message'>
+<?php
+	if (isset($_POST['message'])){
+																											echo $_POST['message'];																											
+																											}
+?>
+</textarea><br>
 
 <br>
 <button type="submit">Hiba jelentése</button><br>
@@ -64,8 +70,12 @@ A *-gal jelölt mezők kitöltése kötelező.
 </form>
 
 <p>
-<b>Miért adjam meg a weboldalam?</b><br>
-Nem kötelező megadnod, de amennyiben az általad beküldött hibajelentést hasznosnak találjuk, a jelzésért cserébe megjelentetjük a weboldalad kattintható linkként.  
+<b>Mi történik ha megadom a weboldalam címét?</b><br>
+<ol>
+	<li>Értékeljük hogy valóban hasznos információt szolgáltattál-e az oldal számára!</li>
+	<li>A megadott e-mail címeden keresztül értesítünk az eredményről, és az hibajavításról.</li>
+	<li>Ha minden rendben ment, a partneroldalunkon megjelentetjük a neved és a megadott weboldal címét kattintható linkként.</li>
+</ol>
 </p>
 
 </body>
