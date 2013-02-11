@@ -2,6 +2,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="font/stylesheet.css" />
 	</head>
 <body>
 
@@ -12,8 +13,7 @@
 
 <section>
 	<form method="get" target="_top">
-		<label for="postal"> Irányítószám:</label>
-		<input type="text" id="postal" value="" name="Irányítószám" placeholder="pl.:6077" />
+		<input type="text" id="postal" value="" name="postalcode" placeholder="Irányítószám" />
 		<input type="submit" value="Keresés" />
 	</form>
 
