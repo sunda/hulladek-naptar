@@ -1,11 +1,24 @@
 <html>
+<head>
+
 <meta charset="UTF-8">
+<title>Orgovány hulladékszállítási naptára</title>
+<meta name="description" content="Orgovány helység hulladékszállítási naptára. Az elszállított hulladékok fajtái: kommunális, szelektív.">
+<meta name="keywords" content="Orgovány, hulladékszállítási naptár, kommunális hulladék, szelektív hulladék">
+<meta charset="UTF-8">
+</head>
 <body>
 
 
-<div style="text-align: center"><h3>Hulladékszállítási naptár</h3></div>
+<div style="text-align: center">
+<h3>Hulladékszállítási naptár a következő településen: Orgovány</h3>
 
-<h2><div style="text-align: center"><font color="#FF0000">6077 Orgovány</font></div></h2>
+<p>
+Orgovány irányítószáma: 6077<br>
+Megye: Bács-Kiskun megye<br>
+[Megjegyzés ha van Note]
+</p>
+</div>
 
 
 <div style="text-align: center">Következő szállítás:</div>
@@ -15,7 +28,7 @@
 <br>
 <div style="text-align: center">>>>>>>Reklámblokk<<<<<<</div>
 <br>
-
+<p>Tipp: Ne maradjon a nyakadon a szemét máskor sem! Kövesd ezt a naptárat a mobilodon is, a következő URL címen: http://shortURL/6077</p>
 <p>
 <center> További hulladékszállítási dátumok:</center>
 
@@ -47,8 +60,8 @@
 </p>
 <p align="center">
 Segíts nekünk:<br>
-<a href="#">Hibát találtam a naptárban</a><br>
-<a href="#">Naptár hozzáadása</a>
+<a href="error_report.php">Jelenteni szeretném, hogy ebben a naptárban hibás adatok vannak.</a><br>
+<a href="addcalendar.php">Szeretném hozzáadni a saját településem naptárát.</a>
 </p>
 <form>
 Hozzászólások a naptárhoz(később)

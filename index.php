@@ -8,7 +8,14 @@
 
 <header>
 	<h1>Hulladékszállítási naptárak</h1>
-	<h2>Magyarországi hulladékszállítási naptárak. Nézd meg tőletek mikor viszik el a szemetet!</h2>
+	<h2>Magyarországi hulladékszállítási naptárai.</h2>
+	<p>Az oldal használata:</p>
+	<ol>
+	<li>Írd be az irányítószámod.</li>
+	<li>Kattints a Keresésre</li>
+	<li>Mentsd el a könyvjelzőid közé az oldalt.</li>
+</ol>
+<p>Tipp: Állítsd be a mobilodon a településed könyvjelzőként, hogy bármikor meg tudd nézni mikor viszik el tőletek a szemetet.</p>
 </header>
 
 <section>
