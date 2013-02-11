@@ -74,7 +74,7 @@ A *-gal jelölt mezők kitöltése kötelező.
 <ol>
 	<li>Értékeljük hogy valóban hasznos információt szolgáltattál-e az oldal számára!</li>
 	<li>A megadott e-mail címeden keresztül értesítünk az eredményről, és az hibajavításról.</li>
-	<li>Ha minden rendben ment, a partneroldalunkon megjelentetjük a neved és a megadott weboldal címét kattintható linkként.</li>
+	<li>Ha minden rendben ment, a <a href="partners.php">partner oldalunkon</a> megjelentetjük a neved és a megadott weboldal címét kattintható linkként.</li>
 </ol>
 </p>
 
