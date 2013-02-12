@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="css/index.css" />
 	</head>
 <body>
@@ -25,13 +25,45 @@
 	</form>
 
 	<aside>
-		<p>[Moduls/Adsense.html]</p>
+		<p><?php include('moduls/adsense.html') ?></p>
 	</aside>
 </section>
 
 <footer>
-	[s_WasteType/Name]:<br>
-	[s_WasteType/Description]<br>
+<?php
+include('moduls/connector.php');
+include('moduls/error_vars.php');
+
+$link = mysql_connect($hostname,$user,$password);
+if (!$link) {
+				$mail_message=date(DATE_RFC822)."\r\n".mysql_error();
+			mail($mailto, $mail_error_subject,$mail_message);
+    die($error_message);
+ }
+  
+mysql_select_db($databasename);
+
+$query = "SELECT Name, Description FROM s_WasteType";
+
+$result = mysql_query($query);
+
+if (!$result) {
+    $mailMessage= date(DATE_RFC822)."\r\n".mysql_error()."\r\nquery: ".$query;
+    mail($mailto, $mail_error_subject, $mailMessage);
+    die($error_message);
+			}//if (!$result)
+
+
+while ($row = mysql_fetch_assoc($result)) {
+    echo '<p><b>'.$row['Name'].'</b></p>';
+    echo '<p>'.$row['Description'].'</p><br>';
+			}//while
+
+mysql_free_result($result);
+
+mysql_close($link);	
+?>
+
 </footer>
 
 </body>

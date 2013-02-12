@@ -45,13 +45,7 @@ while ($row = mysql_fetch_assoc($result)) {
 
 mysql_free_result($result);
 
-?>
-<p>Helper name: <a href=#>Helper Website:</a><br>
-Helper Note;</p><br>
 
-<p>Helper name: <a href=#>Helper Website:</a><br>
-Helper Note;</p>
-<?php
 mysql_close($link);	
 ?>
 </body>
