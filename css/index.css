@@ -1,5 +1,88 @@
 *{margin:0;padding:0;}
 
+body{
+background:url(pw_maze_white.png);
+font-family:'AsapRegular','Arial';
+color:#4f4f4f;
+}
+
+header,section form{
+background:#000;
+background: rgb(0,0,0); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(79,79,79,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(79,79,79,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(79,79,79,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(79,79,79,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(79,79,79,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(79,79,79,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#4f4f4f',GradientType=0 ); /* IE6-9 */
+color:#FFA900;
+padding:10px;
+}
+header{
+border-bottom:2px solid #FFA900;
+}
+header ul{
+margin-top:10px;
+}
+header ul li{
+display:inline-block;
+}
+header ul a{
+color:#ffa900;
+text-decoration:none;
+}
+section{
+text-align:center;
+}
+section h1{
+margin:10px;
+}
+section ol li{
+display:inline-block;
+margin:5px 4%;
+}
+@media (max-width:1000px){
+	section ol li{
+		font-size:14px;
+	}
+}
+section ol li h1{
+float:left;
+font-size:45px;
+color:#ffa900;
+}
+
+section aside{
+width:320px;
+margin:0 auto;
+}
+section form{
+margin:20px auto;
+min-width:220px;
+max-width:400px;
+width:80%;
+border:2px solid #ffa900;
+border-radius:15px;
+}
+section form input[type='text']{
+height:40px;
+width:70%;
+outline:#ffa900;
+font-size:20px;
+}
+section form input[type='submit']{
+width:28%;
+height:40px;
+position:relative;
+bottom:2px;
+}
+
+footer{
+margin-top:4px;
+text-align:center;
+}
+
 section aside p{
 /*tmp*/
 display:block;
@@ -7,4 +90,8 @@ width:320px;
 height:50px;
 background:#D4AA10;
 /*/tmp*/
+}
+
+p.tip{
+margin:10px;
 }

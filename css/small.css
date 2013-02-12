@@ -1,0 +1,40 @@
+header h1{display:none;}
+header h2{
+font-size:16px;
+text-align:center;
+}
+header ul{display:none;}
+
+section h1{
+font-size:14px;
+}
+section ol{
+width:97%;
+}
+section ol li{
+width:100%;
+margin:0 5px;
+text-align:right;
+}
+section ol li h1{
+font-size:20px;
+margin-bottom:4px;
+position:relative;
+bottom:12px;
+}
+section ol li img{
+display:none;
+}
+.tip{
+font-size:12px;
+}
+section form{
+border-left:none;
+border-right:none;
+border-radius:0;
+width:100%;
+max-width:none;
+padding:4px 0;
+}
+
+
