@@ -5,6 +5,8 @@
 <body>
 
 <?php 
+include('moduls/error_vars.php');
+
 function makeinput($type, $name)//form maker function
 			{
 				$value = '<input type="'.$type.'" name="'.$name.'" ';
@@ -25,20 +27,17 @@ if (isset($_POST['name'])){
 																																						<li>Hiba leírása</li>																																						
 																																						</ul>";
 																																	}else
-																																	{
-																																		
-																																		$to      = 'exam@exam.hu';
-																																		$subject = 'Error report from calendar';
+																																	{																																																												
 																																		$message = 'Reporter website: '.$_POST['url']."\r\n\r\n".'Error report:'. $_POST['message'];
 																																																																													
 																																		
 																																		$headers = 'From:'.$_POST['email']. "\r\n";
 
-																																		$success=mail($to, $subject, $message, $headers);
+																																		$success=mail($mailto, $mail_error_subject, $message, $headers);
 																																		if ($success) {
 																																			echo "<p>A hibajelentést sikeresen elküldted</p>";
 																																			} else {
-																																			echo "<p>A hibajelentést valamilyen technikai probléma miatt nem sikerült kézbesíteni. Kérlek írj egy levelet a exam[at]exam[dot]hu címre.<br> Köszönjük a segítséged!</p>";
+																																			echo $error_report_does_not_work;
 																																			};								
 																																												
 																																		}

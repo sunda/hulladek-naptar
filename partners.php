@@ -6,8 +6,7 @@
 	<body>
 <?php
 include('moduls/connector.php');
-$error_message='Hiba történt feldolgozás közben. Értesíts minket a hibáról <a href="error_report.php">ide kattintva.';
-$mail_error_subject='[Error:'.date("YmdG").']'.'naptar.ewaste.hu';
+include('moduls/error_vars.php');
 
 $link = mysql_connect($hostname,$user,$password);
 if (!$link) {
