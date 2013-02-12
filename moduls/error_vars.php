@@ -1,5 +1,5 @@
 <?php
-$mailto='exam@exam.hu';
+$mailto='errors@ewaste.hu';
 $mail_error_subject='[Error:'.date("YmdG").']'.'naptar.ewaste.hu';
 $error_message='Valami hiba történt. Értesíts minket a hibáról <a href="error_report.php">ide kattintva.';
 
