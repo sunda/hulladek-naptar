@@ -3,7 +3,11 @@ header h2{
 font-size:16px;
 text-align:center;
 }
-header ul{display:none;}
+header ul{
+font-size:12px;
+text-align:center;
+margin-top:5px;
+}
 
 section h1{
 font-size:14px;
@@ -25,7 +29,7 @@ bottom:12px;
 section ol li img{
 display:none;
 }
-.tip{
+p.tip{
 font-size:12px;
 }
 section form{
