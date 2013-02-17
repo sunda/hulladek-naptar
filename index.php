@@ -3,6 +3,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/small.css" media="(max-width:480px)" />
+		<link rel="stylesheet" href="css/medium.css" media="(min-width:481px) and (max-width:900px)" />
+		<link rel="stylesheet" href="css/large.css" media="(min-width:901px)" />
 		<link rel="stylesheet" href="font/stylesheet.css" />
 	</head>
 <body>
@@ -11,8 +13,8 @@
 	<h1>Hulladékszállítási naptárak</h1>
 	<h2>Magyarország hulladékszállítási naptárai.</h2>
 	<ul>
-		<li><a href="#">s_Wastetype</a></li>
-		<li><a href="#">s_Wastetype2</a></li>
+		<li><a href="addcalendar.php">Naptár hozzáadása</a></li>
+		<li><a href="error_report.php">Hibabejelentés</a></li>
 	</ul>
 </header>
 
