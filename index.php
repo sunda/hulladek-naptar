@@ -11,7 +11,7 @@
 
 <header>
 	<h1>Hulladékszállítási naptárak</h1>
-	<h2>Magyarország hulladékszállítási naptárai.</h2>
+	<h2>Kukaürítési napok jegyzéke, az ország egész területén!</h2>
 	<ul>
 		<li><a href="addcalendar.php">Naptár hozzáadása</a></li>
 		<li><a href="error_report.php">Hibabejelentés</a></li>
