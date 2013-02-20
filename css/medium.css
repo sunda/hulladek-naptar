@@ -1,7 +1,20 @@
+header h1{
+font-size:24px;
+}
+header h2{
+font-size:20px;
+}
+
 section ol li{
-	font-size:14px;
-	margin: 5px 0;
+	font-size:13px;
+	margin: 5px 1%;
 }
 section ol li h1{
 display:none;
+}
+p.tip{
+font-size:12px;
+}
+section article{
+margin:10px;
 }

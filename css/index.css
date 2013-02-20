@@ -6,7 +6,7 @@ font-family:'AsapRegular','Arial';
 color:#4f4f4f;
 }
 
-header,section form{
+header,section form,section nav{
 background:#000;
 background: rgb(0,0,0); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(79,79,79,1) 100%); /* FF3.6+ */
@@ -21,12 +21,18 @@ padding:10px;
 }
 header{
 border-bottom:2px solid #FFA900;
+padding-bottom:0;
 }
 header ul{
-margin-top:10px;
+margin:10px 0 0;
 }
 header ul li{
 display:inline-block;
+margin:0 4px;
+padding-bottom:6px;
+}
+header ul li:hover{
+background:url(list-arrow.png) no-repeat bottom center;
 }
 header ul a{
 color:#ffa900;
@@ -40,16 +46,9 @@ margin:10px;
 }
 section ol li{
 display:inline-block;
-margin:5px 4%;
-}
-@media (max-width:1000px){
-	section ol li{
-		font-size:14px;
-	}
 }
 section ol li h1{
 float:left;
-font-size:45px;
 color:#ffa900;
 }
 
@@ -65,13 +64,15 @@ width:80%;
 border:2px solid #ffa900;
 border-radius:15px;
 }
-section form input[type='text']{
+section input:not([type='submit']), section select, section article button{
 height:40px;
+line-height:40px;
 width:70%;
+max-width:400px;
 outline:#ffa900;
 font-size:20px;
 }
-section form input[type='submit']{
+section input[type='submit']{
 width:28%;
 height:40px;
 position:relative;

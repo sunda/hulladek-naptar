@@ -29,7 +29,7 @@
 </section>
 
 <section>
-	<form method="get" target="_top">
+	<form method="get" target="_top" action="results.php">
 		<input type="text" id="postal" value="" name="keres" placeholder="Irányítószám" />
 		<input type="submit" value="Keresés" />
 	</form>
@@ -39,10 +39,7 @@
 	</aside>
 </section>
 
-<footer>
-<<<<<<< HEAD
-	ewaste.hu&copy; 2012
-=======
+<footer>ewaste.hu&copy; 2012
 <?php
 include('moduls/connector.php');
 include('moduls/error_vars.php');
@@ -76,8 +73,6 @@ mysql_free_result($result);
 
 mysql_close($link);	
 ?>
-
->>>>>>> 70f617db6385480985abaf5d7e66dc9c4627aeb2
 </footer>
 
 </body>

@@ -1,0 +1,8 @@
+section article{
+display:none;
+}
+
+section article.active{
+display:block;
+}
+
