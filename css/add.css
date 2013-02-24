@@ -1,8 +1,46 @@
 section article{
 display:none;
+min-height:300px;
+min-width:300px;
+width:70%;
+position:relative;
+margin:0 auto 10px;
+}
+
+section input:not([type='submit']), select, button{
+height:40px;
+line-height:40px;
+width:100%;
+outline:#ffa900;
+font-size:20px;
 }
 
 section article.active{
 display:block;
 }
+section article button{
+display:inline-block;
+width:35%;
+position:absolute;
+bottom:0;
+}
+button.prev{left:0;}
+button.next{right:0;}
 
+article p.postalcode{
+width:100%;
+margin:15px 0;
+font-size:24px;
+}
+
+article a{
+color:#000;
+text-decoration:none;
+line-height:32px;
+margin:4px;
+display:inline-block;
+}
+article a img{
+float:left;
+margin-right:3px;
+}

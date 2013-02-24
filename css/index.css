@@ -64,11 +64,10 @@ width:80%;
 border:2px solid #ffa900;
 border-radius:15px;
 }
-section input:not([type='submit']), section select, section article button{
+section input:not([type='submit']), select, button{
 height:40px;
 line-height:40px;
 width:70%;
-max-width:400px;
 outline:#ffa900;
 font-size:20px;
 }

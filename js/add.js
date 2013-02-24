@@ -4,8 +4,7 @@ function tab(num){
 }
 
 function setcity(){
-	$.get("ajax/getcity.php",{"countyID":$("#county").val()},function(data){
-		$("#city").html(data);
-		$("#city").attr("disabled",false);
+	$.get("ajax/getcity.php",{"postalcode":$("#step2 input").val()},function(data){
+		$("#step2 p").html(data);
 	});
 }
