@@ -1,7 +1,11 @@
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="css/index.css" />	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/small.css" media="(max-width:480px)" />
+		<link rel="stylesheet" href="css/medium.css" media="(min-width:481px) and (max-width:900px)" />
+		<link rel="stylesheet" href="css/large.css" media="(min-width:901px)" />
+		<link rel="stylesheet" href="font/stylesheet.css" />
 	</head>
 	<body>
 <?php
@@ -19,13 +23,23 @@ mysql_select_db($databasename);
 ?>	
 
 
+<header>
+<h1>Hulladékszállítási naptárak</h1>
+<h2>Partnereink</h2>
+<ul>
+		<li><a href="index.php">Vissza a kereséshez</a></li>
+		<li><a href="addcalendar.php">Nem találod a településed?</a></li>
+		<li><a href="error_report.php">Hibát észleltem</a></li>		
+</ul>
+</header>
 
-<h1>Köszönet</h1>
-<p>A hulladék naptár nem jöhetett volna létre a ti segítségetek nélkül. Köszönjük a visszajelzéseket, észrevételeket. Akik a legtöbbet segítettek:</p>
+<section>
 <br>
+A hulladék naptár nem jöhetett volna létre a ti segítségetek nélkül. Köszönjük a visszajelzéseket, észrevételeket. Akik a legtöbbet segítettek:
+<br><br>
+</section>
+<section>
 <?php
-
-
 $query = "SELECT Name, Website, Note FROM s_Helpers";
 
 $result = mysql_query($query);
@@ -48,5 +62,6 @@ mysql_free_result($result);
 
 mysql_close($link);	
 ?>
+</section>
 </body>
 </html>
