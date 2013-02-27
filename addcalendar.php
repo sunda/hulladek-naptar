@@ -1,6 +1,16 @@
 <?php
 include "config.php";
 include "moduls/Table.1.5.php";
+
+if(@$_POST["name"]!=""){ 
+	setcookie("data",$_POST["name"].",".$_POST["email"].",".$_POST["site"]);
+	$set=1;
+}
+if(@$_POST["postalcode"]!=""){
+	setcookie("data",$_COOKIE["data"].",".$_POST["postalcode"]);
+	$set=1;
+}
+if(@$set==1) header("Location: addcalendar.php");
 ?>
 <html>
 <head>
@@ -27,41 +37,60 @@ include "moduls/Table.1.5.php";
 		</ul>
 	</header>
 	<section>
-		<article id="step1">
+		<article>
+		<?php 
+		if(isset($_COOKIE["data"])) $cookie=explode(",",$_COOKIE["data"]);
+		//$cookie=name,email,site,postalcode
+		if(@$cookie[0]==''){?>
+		
 			<h1>Hogyan adhatok naptárat az oldalhoz?</h1>
 			<p>Csak pár egyszerű lépésre van szükség.
-		<br>A naptár ellenőrzése után, amennyiben mindent rendben találtunk elhelyezzük a neved és a weboldalad linkjét(persze ha van ilyen), az általad beküldött naptár oldalán. 
-		Az e-mail címed csak a kommunikáció miatt szükséges megadnod, azt sem az oldalon nem tesszük láthatóvá, sem harmadik félnek nem adjuk ki.
-		</p><br>
-		
-		<input type="text" name="name" placeholder="Neved"/><br>
-		<input type="email" name="email" placeholder="E-mail címed" /><br>
-		<input type="text" name="site" placeholder="Weboldalad" /><br>
-		
-		<button onclick="tab(2)" class="next">Tovább</button>
-		</article>
-		
-		<article id="step2" class="active">
+			<br>A naptár ellenőrzése után, amennyiben mindent rendben találtunk elhelyezzük a neved és a weboldalad linkjét(persze ha van ilyen), az általad beküldött naptár oldalán. 
+			Az e-mail címed csak a kommunikáció miatt szükséges megadnod, azt sem az oldalon nem tesszük láthatóvá, sem harmadik félnek nem adjuk ki.
+			</p><br>
+			<form action="" method="post">
+				<input type="text" name="name" placeholder="Neved"/><br>
+				<input type="email" name="email" placeholder="E-mail címed" /><br>
+				<input type="text" name="site" placeholder="Weboldalad" /><br>
+				<button class="next">Tovább</button>
+			</form>
+		<?php
+		}else if(@$cookie[3]==""){?>
 			<h1>Írd be a település irányítószámát, amihez naptárat szeretnél hozzáadni</h1>
-			<input type="text" name="postalcode" placeholder="Irányítószám" onchange="setcity()" value=" " /><br>
-			<p class="postalcode"></p><br>
+			<form action="" method="post">
+				<input type="text" name="postalcode" placeholder="Irányítószám" onchange="setcity()" onkeyup="setcity()" value="" /><br>
+				<p class="cityname postalcode"></p><br>
+				<button class="next">Tovább</button>
+			</form>
+		<?php
+		}else{?>
+			<h1>Naptár hozzáadása ehhez a településhez:
+			<?php
+			$t=new Table("s_Settlements");
+			$city=$t->get("*","PostalCode='".$cookie[3]."'");
+			print $city[0]["Name"].", ".$city[0]["County"]." megye";
 			
-			<button onclick="tab(1)" class="prev">Vissza</button>
-			<button onclick="tab(3)" class="next">Tovább</button>
-		</article>	
-		
-		<article id="step3">
-			<h1>Naptár hozzáadása ehhez a településhez:</h1>
-			<a href="javascript:add-single()" id="add-single">
-				<img alt="add-single" src="css/add.png" />
-				Egyszeri esemény hozzáadása
-			</a>
-			<a href="javascript:add-regular()" id="add-regular">
-				<img alt="add-regular" src="css/add.png" />
-				Rendszeres esemény hozzáadása
-			</a>
-			
-			<button onclick="tab(2)" class="prev">Vissza</button>
+			$t=new Table("s_WasteType");
+			$wastetypes=$t->get("*");
+			?></h1>
+			<nav>
+				<ul>
+					<li><img alt="add-single" src="css/add.png" />Egyszeri esemény hozzáadása</li>
+					<?php foreach($wastetypes as $wt):?>
+					<li class="item" onclick="add_single(<?php print $wt["WasteTypeID"].",'".$wt["Name"]."'";?>)"><?php print $wt["Name"];?></li>
+					<?php endforeach;?>
+				</ul>
+				<ul>
+					<li><img alt="add-regular" src="css/add.png" />Rendszeres esemény hozzáadása</li>
+					<?php foreach($wastetypes as $wt):?>
+					<li class="item" onclick="add_regular(<?php print $wt["WasteTypeID"].",'".$wt["Name"]."'";?>)"><?php print $wt["Name"];?></li>
+					<?php endforeach;?>
+				</ul>
+			</nav>
+			<ul id="list"></ul>
+			<button class="next">Mentés</button>
+		<?php
+		} ?>
 		</article>
 		
 		<font size="4" color="#FF0000">Ha hibát akarsz bejelenteni, <a href="error_report.php">ide kattintva tedd meg.</a></font>

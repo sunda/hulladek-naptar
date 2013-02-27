@@ -1,10 +1,10 @@
 section article{
-display:none;
 min-height:300px;
 min-width:300px;
 width:70%;
 position:relative;
 margin:0 auto 10px;
+padding-bottom:40px;
 }
 
 section input:not([type='submit']), select, button{
@@ -15,9 +15,6 @@ outline:#ffa900;
 font-size:20px;
 }
 
-section article.active{
-display:block;
-}
 section article button{
 display:inline-block;
 width:35%;
@@ -32,15 +29,59 @@ width:100%;
 margin:15px 0;
 font-size:24px;
 }
-
+article nav{
+position:absolute;
+width:100%;
+display:table;
+min-height:40px;
+margin:0 auto;
+}
+article nav ul{
+position:relative;
+margin:5px;
+height:32px;
+overflow:hidden;
+float:left;
+}
+article nav ul:hover{height:auto;}
+article nav ul li{
+list-style-type:none;
+line-height:32px;
+cursor:pointer;
+text-align:right;
+}
+article nav li.item{
+padding:0 5px;
+border-right:5px solid #4f4f4f;
+background:url(pw_maze_white.png);
+}
+article nav li.item:hover{
+border-right:5px solid #ffa900;
+}
 article a{
 color:#000;
 text-decoration:none;
-line-height:32px;
 margin:4px;
-display:inline-block;
 }
-article a img{
+article ul li img{
 float:left;
 margin-right:3px;
+}
+#list{
+margin-top:60px;
+}
+#list li{
+border:1px solid #4f4f4f;
+list-style-type:none;
+height:34px;
+text-align:left;
+font-size:24px;
+line-height:34px;
+margin-top:2px;
+}
+#list li span{
+float:right;
+}
+#list li img{
+float:right;
 }
