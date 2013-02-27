@@ -3,11 +3,11 @@ include "config.php";
 include "moduls/Table.1.5.php";
 
 if(@$_POST["name"]!=""){ 
-	setcookie("data",$_POST["name"].",".$_POST["email"].",".$_POST["site"]);
+	setcookie("ewcal-data",$_POST["name"].",".$_POST["email"].",".$_POST["site"]);
 	$set=1;
 }
 if(@$_POST["postalcode"]!=""){
-	setcookie("data",$_COOKIE["data"].",".$_POST["postalcode"]);
+	setcookie("ewcal-data",$_COOKIE["ewcal-data"].",".$_POST["postalcode"]);
 	$set=1;
 }
 if(@$set==1) header("Location: addcalendar.php");
@@ -26,6 +26,7 @@ if(@$set==1) header("Location: addcalendar.php");
 	<link rel="stylesheet" href="css/large.css" media="(min-width:901px)" />
 	<link rel='stylesheet' href="font/stylesheet.css" />
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/jquery.cookie.js"></script>
 	<script src="js/add.js"></script>
 </head>
 <body>
@@ -39,7 +40,7 @@ if(@$set==1) header("Location: addcalendar.php");
 	<section>
 		<article>
 		<?php 
-		if(isset($_COOKIE["data"])) $cookie=explode(",",$_COOKIE["data"]);
+		if(isset($_COOKIE["ewcal-data"])) $cookie=explode(",",$_COOKIE["ewcal-data"]);
 		//$cookie=name,email,site,postalcode
 		if(@$cookie[0]==''){?>
 		
@@ -87,8 +88,38 @@ if(@$set==1) header("Location: addcalendar.php");
 					<?php endforeach;?>
 				</ul>
 			</nav>
-			<ul id="list"></ul>
-			<button class="next">Mentés</button>
+			<ul id="list">
+				<?php
+				if(isset($_COOKIE["ewcal-items"])){
+						$items=explode(":",$_COOKIE["ewcal-items"]);
+						foreach($items as $i){
+							if($i!=""){
+								$data=explode(",",$i);
+				?>
+				<li rel="<?= $data[0];?>"><?= $data[2];?><img src='css/remove.png' /><span><?= $data[3];?></span></li>
+				<?php
+							}
+						}
+				}
+				?>
+			</ul>
+			
+			<form method="post" id="listform">
+				<?php
+				if(isset($_COOKIE["ewcal-items"])){
+						$items=explode(":",$_COOKIE["ewcal-items"]);
+						foreach($items as $i){
+							if($i!=""){
+								$data=explode(",",$i);
+				?>
+				<input type="hidden" name="item-<?= $data[0];?>" value="<?= $data[1].",".$data[3];?>" />
+				<?php
+							}
+						}
+				}
+				?>
+				<button class="next">Mentés</button>
+			</form>
 		<?php
 		} ?>
 		</article>
