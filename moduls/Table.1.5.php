@@ -21,6 +21,16 @@ class Table{
 			$this->error(mysql_error());	
 		}
 	}
+	public function fetch($query=""){
+		$r=Array();
+		$this->query=($query!=""?$query:$this->query);
+		$this->query=str_replace("&table",$this->table,$this->query);
+		if(1==mysql_query($this->query,$this->handler)){
+			return true;
+		}
+		$this->error(mysql_error());
+		return false;	
+	}
 	
 	public function get($fields,$filter="",$order=""){
 		$r=Array();

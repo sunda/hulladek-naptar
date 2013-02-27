@@ -96,7 +96,7 @@ if(@$set==1) header("Location: addcalendar.php");
 							if($i!=""){
 								$data=explode(",",$i);
 				?>
-				<li rel="<?= $data[0];?>"><?= $data[2];?><img src='css/remove.png' /><span><?= $data[3];?></span></li>
+				<li rel="<?= $data[0];?>"><?= $data[2];?><img src='css/remove.png' onclick="remove(<?= $data[0];?>)" /><span><?= $data[3];?></span></li>
 				<?php
 							}
 						}
@@ -104,7 +104,8 @@ if(@$set==1) header("Location: addcalendar.php");
 				?>
 			</ul>
 			
-			<form method="post" id="listform">
+			<form action="save.php" method="post" id="listform">
+				<input type="hidden" name="ewcal" value="save-enable" />
 				<?php
 				if(isset($_COOKIE["ewcal-items"])){
 						$items=explode(":",$_COOKIE["ewcal-items"]);
