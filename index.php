@@ -34,9 +34,7 @@
 		<input type="submit" value="Keresés" />
 	</form>
 
-	<aside>
-		<p><?php include('moduls/adsense.html') ?></p>
-	</aside>
+	<p class="adsense"><?php include('moduls/adsense.html') ?></p>
 </section>
 
 <footer>ewaste.hu&copy; 2013</footer>

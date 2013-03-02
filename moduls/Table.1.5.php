@@ -1,6 +1,6 @@
 <?
 //Name:Table
-//Version:1.5
+//Version:1.6
 //Dependencies:;
 class Table{
 	private $handler="";
@@ -8,17 +8,20 @@ class Table{
 	private $query="";
 	private $error="";
 	
-	public function __construct($table="",$template=""){
+	public function __construct($table="",$template="",$callback=null){
+		$this->callback=$callback;
 		if($this->handler=mysql_connect(SQL_SERVER,SQL_LOGIN,SQL_PASS,TRUE)){
 			if(mysql_select_db(SQL_DBNAME,$this->handler)){
 				mysql_set_charset("UTF8",$this->handler);
 			}else{
-				$this->error(mysql_error());
+				if($callback) call_user_func($callback,mysql_error(),"");
+				else $this->error(mysql_error());
 			}
 			if($template!="") $this->installTemplate($template);
 			if($table!="")	$this->table=$table;
 		}else{
-			$this->error(mysql_error());	
+			if($callback) call_user_func($callback,mysql_error(),"");
+			else $this->error(mysql_error());	
 		}
 	}
 	public function fetch($query=""){
@@ -28,7 +31,8 @@ class Table{
 		if(1==mysql_query($this->query,$this->handler)){
 			return true;
 		}
-		$this->error(mysql_error());
+		if($this->callback) call_user_func($this->callback,mysql_error(),$this->query);
+		else $this->error(mysql_error());
 		return false;	
 	}
 	
@@ -44,14 +48,16 @@ class Table{
 			}
 			return $r;
 		}
-		$this->error(mysql_error());
+		if($this->callback) call_user_func($this->callback,mysql_error(),$this->query);
+		else $this->error(mysql_error());
 		return false;	
 	}
 	
 	public function put($fields,$values,$sub=""){
 		$this->query="INSERT INTO `".$this->table."` (".$this->getParams($fields,"`").") VALUES(".$this->getParams($values).") ".$sub;
 		if(mysql_query($this->query,$this->handler)) return true;
-		$this->error(mysql_error());
+		if($this->callback) call_user_func($this->callback,mysql_error(),$this->query);
+		else $this->error(mysql_error());
 		return false;
 	}
 	public function get_auto_increment(){
@@ -64,15 +70,23 @@ class Table{
 	//todo
 	public function update($query,$filter){
 		$this->query="UPDATE `".$this->table."` SET ".$query." WHERE ".$filter;
-		return mysql_query($this->query,$this->handler) or
-		$this->error(mysql_error());
+		if($q=mysql_query($this->query,$this->handler)){
+			return $q;
+		}else{
+			if($this->callback) call_user_func($this->callback,mysql_error(),$this->query);
+			else $this->error(mysql_error());
+		}
 	}
 	
 	public function delete($filter){
 		$this->query="DELETE FROM `".$this->table."`";
 		if($filter!="all") $this->query.=" WHERE ".$filter;
-		return mysql_query($this->query,$this->handler) or
-		$this->error(mysql_error());
+		if($q=mysql_query($this->query,$this->handler)){
+			return $q;
+		}else{
+			if($this->callback) $this->callback(mysql_error(),$this->query);
+			else $this->error(mysql_error());
+		}
 	}
 	//endtodo
 	public function lastQuery(){
@@ -82,8 +96,12 @@ class Table{
 		return $this->error;
 	}
 	private function installTemplate($template){
-		return mysql_query($template,$this->handler) or
-		$this->error(mysql_error());
+		if($q=mysql_query($template,$this->handler)){
+			return $q;
+		}else{
+			if($this->callback) $this->callback(mysql_error(),$this->query);
+			else $this->error(mysql_error());
+		}
 	}
 	private function error($txt){
 		$this->error=$txt;

@@ -9,11 +9,22 @@ include "moduls/Table.1.5.php";
 	<meta name="keywords" content="hulladékszállítási naptár, kommunális hulladék, szelektív hulladék">
 	<meta charset="UTF-8">
 	<link rel='stylesheet' href="css/index.css" />
+	<link rel="stylesheet" href="css/small.css" media="(max-width:480px)" />
+	<link rel="stylesheet" href="css/medium.css" media="(min-width:481px) and (max-width:900px)" />
+	<link rel="stylesheet" href="css/large.css" media="(min-width:901px)" />
 	<link rel='stylesheet' href="font/stylesheet.css" />
 </head>
 <body>
 	<header>
-		<h1>Keresési eredmények</h1>
+		<h1>Hulladékszállítási naptár</h1>
+		<h2><span class="small-hide">Település:</span>
+		<?php
+		$t=new Table("s_Settlements");
+		$match=$t->get("*","PostalCode='".mysql_real_escape_string($_GET["keres"])."'");
+		if(isset($match[0])) print $match[0]["PostalCode"]." ".$match[0]["Name"].", ".$match[0]["County"]." megye<br>".$match[0]["Note"];
+		else print "Nincs ilyen teleülés az adatbázisban!";
+		?>
+		</h2>
 		<ul>
 			<li><a href="index.php">Új keresés</a></li>
 			<li><a href="addcalendar.php">Naptár hozzáadása</a></li>
@@ -21,15 +32,45 @@ include "moduls/Table.1.5.php";
 		</ul>
 	</header>
 	<section>
-		<ul>
+		<h1>Következő szállítás:</h1>
+		<h2>
+		<?
+		$t2=new Table("s_WasteType");
+		$types=$t2->get("*");
+		$t=new Table("f_Calendar");
+		$results=$t->get("*","PostalCode=".mysql_real_escape_string($_GET["keres"]));
+		if(isset($results[0])){
+			print $results[0]["Date"]."<br>";
+			foreach($types as $i){
+				if($results[0]["WasteTypeID"]==$i["WasteTypeID"]) print $i["Name"];
+			}
+		}
+		?>
+		</h2>
+		<p class="adsense"><?php include('moduls/adsense.html'); ?></p>
+		<p class="tip">Tipp: Ne maradjon a nyakadon a szemét máskor sem! Kövesd ezt a naptárat a mobilodon is, a következő URL címen: <strong>http://naptar.ewaste.hu/6077</strong></p>
+		
+		<h2>További szállítási dátumok</h2>
+		<table cellspacing="0">
 			<?php
-			$t=new Table("f_Calendar");
-			$results=$t->get("*","PostalCode=".$_GET["keres"]);
 			foreach($results as $i):
 			?>
-			<li><i><?= $i["WasteTypeID"];?></i>&nbsp;&nbsp;<?= $i["Date"]?></li>
+			<tr>
+				<td style="
+					<?php
+					foreach($types as $type){
+						if($type["WasteTypeID"]==$i["WasteTypeID"]){
+							$style=$type["Style"];
+							print $style.'">';
+							print $type["Name"];
+						}
+					}
+					?>
+				</td>
+				<td class="right" style="<?= $style.'">'.$i["Date"]?></td>
+			 </tr>
 			<? endforeach; ?>
-		</ul>
+		</table>
 	</section>
 </body>
 </html>

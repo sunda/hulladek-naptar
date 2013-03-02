@@ -9,17 +9,17 @@
 	</head>
 	<body>
 <?php
-include('moduls/connector.php');
-include('moduls/error_vars.php');
+include('config.php');
+include('moduls/Table.1.5.php');
 
-$link = mysql_connect($hostname,$user,$password);
-if (!$link) {
-				$mail_message=date(DATE_RFC822)."\r\n".mysql_error();
-			mail($mailto, $mail_error_subject,$mail_message);
+function errorhandler($error,$query=""){
+	global $mailto,$mail_message,$error_message,$mail_error_subject;
+	
+	$mail_message=date(DATE_RFC822)."\r\n".$error."\r\n".$query;
+	mail($mailto, $mail_error_subject,$mail_message) or die("Hibaüzenet küldése sikertelen");
     die($error_message);
- }
-  
-mysql_select_db($databasename);
+}
+
 ?>	
 
 
@@ -40,27 +40,15 @@ A hulladék naptár nem jöhetett volna létre a ti segítségetek nélkül. Kö
 </section>
 <section>
 <?php
-$query = "SELECT Name, Website, Note FROM s_Helpers";
+$t=new Table("s_Helpers","","errorhandler");
+$result = $t->get("Name,Website,Note");
 
-$result = mysql_query($query);
-
-if (!$result) {
-    $mailMessage= date(DATE_RFC822)."\r\n".mysql_error()."\r\nquery: ".$query;
-    mail($mailto, $mail_error_subject, $mailMessage);
-    die($error_message);
-			}//if (!$result)
-
-
-while ($row = mysql_fetch_assoc($result)) {
+foreach($result as $row) {
     echo '<p>'.$row['Name'].'</p>';
     echo '<p><a href="'.$row['Website'].'">'.$row['Website'].'</a></p>';
     echo '<p>'.$row['Note'].'</p><br>';
-			}//while
+}
 
-mysql_free_result($result);
-
-
-mysql_close($link);	
 ?>
 </section>
 </body>

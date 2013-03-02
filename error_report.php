@@ -10,7 +10,7 @@
 <body>
 
 <?php 
-include('moduls/error_vars.php');
+include('config.php');
 
 function makeinput($type, $name, $text)//form maker function
 			{
