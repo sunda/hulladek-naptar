@@ -13,8 +13,7 @@
 	<h1>Hulladékszállítási naptárak</h1>
 	<h2>Kukaürítési napok jegyzéke, az ország egész területén!</h2>
 	<ul>
-		<li><a href="addcalendar.php">Naptár hozzáadása</a></li>
-		<li><a href="error_report.php">Hibabejelentés</a></li>
+		<li><a href="contact.php">Írj nekünk!</a></li>
 	</ul>
 </header>
 

@@ -28,8 +28,7 @@ function errorhandler($error,$query=""){
 <h2>Partnereink</h2>
 <ul>
 		<li><a href="index.php">Vissza a kereséshez</a></li>
-		<li><a href="addcalendar.php">Nem találod a településed?</a></li>
-		<li><a href="error_report.php">Hibát észleltem</a></li>		
+		<li><a href="contact.php">Írj nekünk</a></li>		
 </ul>
 </header>
 

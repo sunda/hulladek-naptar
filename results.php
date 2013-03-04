@@ -27,8 +27,7 @@ include "moduls/Table.1.5.php";
 		</h2>
 		<ul>
 			<li><a href="index.php">Új keresés</a></li>
-			<li><a href="addcalendar.php">Naptár hozzáadása</a></li>
-			<li><a href="error_report.php">Hibabejelentés</a></li>
+			<li><a href="contact.php">Írj nekünk!</a></li>
 		</ul>
 	</header>
 	<section>
