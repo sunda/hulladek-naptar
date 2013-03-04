@@ -1,5 +1,6 @@
 <html>
 <head>
+	<title>Kapcsolat::Hulladékszállítási naptárak</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/small.css" media="(max-width:480px)" />
@@ -59,7 +60,6 @@ if (isset($_POST['name'])){
 
 <ul>
 		<li><a href="index.php">Vissza a kereséshez</a></li>
-		<li><a href="addcalendar.php">Nem találod a településed?</a></li>
 		<li><a href="partners.php">Partnereink</a></li>		
 	</ul>
 </header>

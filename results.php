@@ -22,7 +22,7 @@ include "moduls/Table.1.5.php";
 		$t=new Table("s_Settlements");
 		$match=$t->get("*","PostalCode='".mysql_real_escape_string($_GET["keres"])."'");
 		if(isset($match[0])) print $match[0]["PostalCode"]." ".$match[0]["Name"].", ".$match[0]["County"]." megye<br>".$match[0]["Note"];
-		else print "Nincs ilyen teleülés az adatbázisban!";
+		else print "Nincs ilyen település az adatbázisban!";
 		?>
 		</h2>
 		<ul>
@@ -43,12 +43,16 @@ include "moduls/Table.1.5.php";
 			foreach($types as $i){
 				if($results[0]["WasteTypeID"]==$i["WasteTypeID"]) print $i["Name"];
 			}
+		}else{
+			print "Nincs rögzített adat";
+			$next=0;
 		}
 		?>
 		</h2>
 		<p class="adsense"><?php include('moduls/adsense.html'); ?></p>
 		<p class="tip">Tipp: Ne maradjon a nyakadon a szemét máskor sem! Kövesd ezt a naptárat a mobilodon is, a következő URL címen: <strong>http://naptar.ewaste.hu/6077</strong></p>
 		
+		<? if(!isset($next)): ?>
 		<h2>További szállítási dátumok</h2>
 		<table cellspacing="0">
 			<?php
@@ -70,6 +74,7 @@ include "moduls/Table.1.5.php";
 			 </tr>
 			<? endforeach; ?>
 		</table>
+		<? endif;?>
 	</section>
 </body>
 </html>

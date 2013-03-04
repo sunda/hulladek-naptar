@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<title>Keresés a hulladékszállítási naptárakban</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="css/small.css" media="(max-width:480px)" />
