@@ -37,7 +37,7 @@ include "moduls/Table.1.5.php";
 		$t2=new Table("s_WasteType");
 		$types=$t2->get("*");
 		$t=new Table("f_Calendar");
-		$results=$t->get("*","PostalCode=".mysql_real_escape_string($_GET["keres"]));
+		$results=$t->get("*","PostalCode='".mysql_real_escape_string($_GET["keres"])."' AND Date>='".date("Y-m-d")."'");
 		if(isset($results[0])){
 			print $results[0]["Date"]."<br>";
 			foreach($types as $i){
